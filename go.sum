@@ -1,3 +1,7 @@
+github.com/centrypoint/fb2 v0.0.0-20180327044439-eeb4df2bde7c h1:a2NJamH4+vE+cUwuB4tzSbkzg2UKtNrieZCzWbiXUzE=
+github.com/centrypoint/fb2 v0.0.0-20180327044439-eeb4df2bde7c/go.mod h1:R/M8HMstW65+NR2gSzbGM139NFt6AoVzSTTzoI8vTCc=
+github.com/golang/protobuf v1.3.3 h1:gyjaxf+svBWX08ZjK86iN9geUJF0H6gp2IRKX6Nf6/I=
+github.com/golang/protobuf v1.3.3/go.mod h1:vzj43D7+SQXF/4pzW/hwtAqwc6iTitCiVSaWz5lYuqw=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/net v0.0.0-20200202094626-16171245cfb2 h1:CCH4IOTTfewWjGOlSp+zGcjutRKlBEZQ6wTn8ozI/nI=
 golang.org/x/net v0.0.0-20200202094626-16171245cfb2/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=

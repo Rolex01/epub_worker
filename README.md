@@ -1,1 +1,1 @@
-# epub_worker
+# translator_worker

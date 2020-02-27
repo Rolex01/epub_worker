@@ -1,18 +1,64 @@
 package main
 
 import (
-	"github.com/rolex01/epub_workers/epub"
+	"fmt"
+	"github.com/rolex01/epub_workers/fb2"
+	"io/ioutil"
 	"log"
+	"os"
 )
 
 func main() {
-	e, err := epub.Open("Yanagihara Hanya. A Little Life - royallib.com.epub")
-	if err != nil {
+	var (
+		file     *os.File
+		data     []byte
+		result   fb2.FB2
+		err      error
+		filename = "Strugackie_A._Trudno_Byit_BogomIII.fb2"
+	)
+
+	if file, err = os.OpenFile(filename, os.O_RDONLY, 0666); err != nil {
 		log.Fatal(err)
 	}
-	defer e.Close()
 
-	e.GetStyle()
+	defer file.Close()
+
+	if data, err = ioutil.ReadAll(file); err != nil {
+		log.Fatal(err)
+	}
+
+	p := fb2.New(data)
+
+	if result, err = p.Unmarshal(); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(result.Description.TitleInfo.Coverpage.Image.Href)
+
+	p.PrintXML()
+
+	/*
+		f, err := os.OpenFile("parse.json", os.O_APPEND|os.O_WRONLY, 0600)
+		if err != nil {
+			panic(err)
+		}
+
+		defer f.Close()
+
+		text := fmt.Sprintf("%+v\n", result)
+
+		if _, err = f.WriteString(text); err != nil {
+			panic(err)
+		}*/
+
+
+	//e, err := epub.Open("Yanagihara Hanya. A Little Life - royallib.com.epub")
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
+	//defer e.Close()
+	//
+	//e.GetStyle()
 	/*for i, val := range m {
 		fmt.Println("Styles:", i, string(val))
 	}*/
