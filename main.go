@@ -3,12 +3,41 @@ package main
 import (
 	"fmt"
 	"github.com/rolex01/epub_workers/fb2"
-	"io/ioutil"
-	"log"
-	"os"
 )
 
 func main() {
+	res, err := fb2.Xml2html("Strugackie_A._Trudno_Byit_BogomIII.fb2")
+	if err != nil {
+		fmt.Println("ERROR:", err)
+	}
+
+	fmt.Println(string(res))
+
+	/*
+	fmt.Println("QWE")
+	style, _ := xml.ReadFile("stylesheet.xsl", xml.StrictParseOption)
+	input, _ := xml.ReadFile("Strugackie_A._Trudno_Byit_BogomIII.fb2", xml.StrictParseOption)
+	outData, _ := ioutil.ReadFile("output.out")
+
+
+	expected := string(outData)
+	stylesheet, _ := xslt.ParseStylesheet(style, "stylesheet.xsl")
+	testOptions := xslt.StylesheetOptions{false, nil}
+	output, _ := stylesheet.Process(input, testOptions)
+	if output != expected {
+		fmt.Println("failed")
+		fmt.Println("---- EXPECTED  ", "stylesheet.xsl", "----")
+		fmt.Println(expected)
+		fmt.Println("---- ACTUAL  ", "stylesheet.xsl", "----")
+		fmt.Println(output)
+	} else {
+		fmt.Println("OK!!!")
+	}
+
+	fmt.Println("ENDDDD")
+	//*/
+
+	/*
 	var (
 		file     *os.File
 		data     []byte
@@ -36,6 +65,8 @@ func main() {
 	fmt.Println(result.Description.TitleInfo.Coverpage.Image.Href)
 
 	p.PrintXML()
+
+	//*/
 
 	/*
 		f, err := os.OpenFile("parse.json", os.O_APPEND|os.O_WRONLY, 0600)

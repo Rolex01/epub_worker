@@ -1,7 +1,13 @@
+github.com/beevik/etree v1.1.0 h1:T0xke/WvNtMoCqgzPhkX2r4rjY3GDZFi+FjpRZY2Jbs=
+github.com/beevik/etree v1.1.0/go.mod h1:r8Aw8JqVegEf0w2fDnATrX9VpkMcyFeM0FhwO62wh+A=
 github.com/centrypoint/fb2 v0.0.0-20180327044439-eeb4df2bde7c h1:a2NJamH4+vE+cUwuB4tzSbkzg2UKtNrieZCzWbiXUzE=
 github.com/centrypoint/fb2 v0.0.0-20180327044439-eeb4df2bde7c/go.mod h1:R/M8HMstW65+NR2gSzbGM139NFt6AoVzSTTzoI8vTCc=
 github.com/golang/protobuf v1.3.3 h1:gyjaxf+svBWX08ZjK86iN9geUJF0H6gp2IRKX6Nf6/I=
 github.com/golang/protobuf v1.3.3/go.mod h1:vzj43D7+SQXF/4pzW/hwtAqwc6iTitCiVSaWz5lYuqw=
+github.com/jbowtie/gokogiri v0.0.0-20190301021639-37f655d3078f h1:6UIvzqlGM38lOpKP380Wbl0kUyyjutcc7KJUaDM/U4o=
+github.com/jbowtie/gokogiri v0.0.0-20190301021639-37f655d3078f/go.mod h1:C3R3VzPq+DAwilxue7DiV6F2QL1rrQX0L56GyI+sBxM=
+github.com/jbowtie/ratago v0.0.0-20180115094149-33a9dca16476 h1:oJjMBS3C2YJEWJDRuIGCcLahNlpfID52BlqDmZx40Ks=
+github.com/jbowtie/ratago v0.0.0-20180115094149-33a9dca16476/go.mod h1:6IMkzlV446Sd3u2cvB69IdW8uJDphLzkPf05hjOyKvM=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
 golang.org/x/net v0.0.0-20200202094626-16171245cfb2 h1:CCH4IOTTfewWjGOlSp+zGcjutRKlBEZQ6wTn8ozI/nI=
 golang.org/x/net v0.0.0-20200202094626-16171245cfb2/go.mod h1:z5CRVTTTmAJ677TzLLGU+0bjPO0LkuOLi4/5GtJWs/s=

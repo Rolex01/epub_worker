@@ -1,11 +1,12 @@
 package fb2
 
 import (
+	"bytes"
+	"encoding/xml"
 	"fmt"
 	"golang.org/x/text/encoding/charmap"
 	"io"
 	"os"
-	"encoding/xml"
 )
 
 // get xlink from enclosed tag image
@@ -36,9 +37,45 @@ func decodeWin1251(i io.Reader) (r io.Reader) {
 }
 
 func (p *Parser) PrintXML() {
+	input := bytes.NewReader(p.book)
+	decoder := xml.NewDecoder(input)
+	var data string
+
+	for {
+		tok, tokenErr := decoder.Token()
+		if tokenErr != nil && tokenErr != io.EOF {
+			fmt.Println("error happend", tokenErr)
+			fmt.Println("break 1")
+			break
+		} else if tokenErr == io.EOF {
+			fmt.Println("break 2")
+			break
+		}
+		if tok == nil {
+			fmt.Println("t is nil break")
+		}
+
+		/**/
+		switch tok := tok.(type) {
+			case xml.StartElement:
+				fmt.Println("StartElement", tok.Name.Local, ":", data)
+				//if tok.Name.Local == "p" {
+				//	var data string
+				qwe := tok.Copy()
+				if err := decoder.DecodeElement(&data, &qwe); err != nil {
+					fmt.Println("error happend", err)
+				}
+				fmt.Printf("%s: %s\n", qwe.Name.Local, data)
+				//}
+			case xml.EndElement:
+				fmt.Println("EndElement", tok.Name.Local, ":", data)
+		}
+	}
+
+	/*
 	var f interface{}
 
-	fmt.Println(p.reader)
+	//fmt.Println(string(p.book)[:1])
 
 	err := xml.Unmarshal(p.book, &f)
 	if err != nil {
@@ -57,6 +94,7 @@ func (p *Parser) PrintXML() {
 	defer file.Close()
 
 	printXML(f, file)
+	//*/
 }
 
 func printXML(v interface{}, file *os.File) {

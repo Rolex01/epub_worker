@@ -4,6 +4,8 @@ import (
 	"bytes"
 	"encoding/xml"
 	"io"
+	"os"
+	"os/exec"
 )
 
 // Parser struct
@@ -58,4 +60,19 @@ func (p *Parser) Unmarshal() (result FB2, err error) {
 	result.UnmarshalCoverpage(p.book)
 
 	return
+}
+
+func Xml2html(xmlPath string) ([]byte, error) {
+	cmd := exec.Cmd{
+		Args: []string{"xsltproc", "fb2/style/stylesheet.xsl", xmlPath},
+		Env:  os.Environ(),
+		Path: "/usr/bin/xsltproc",
+	}
+
+	htmlOut, err := cmd.Output()
+	if err != nil {
+		return nil, err
+	}
+
+	return []byte(htmlOut), nil
 }

@@ -6,8 +6,9 @@
 *.dylib
 *.zip
 *.epub
-*.fb2
+#*.fb2
 *.json
+*.xml
 
 # Test binary, built with `go test -c`
 *.test

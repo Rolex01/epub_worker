@@ -70,14 +70,21 @@ type FB2 struct {
 	} `xml:"description" bson:"description"`
 	Body []struct {
 		Name	string `xml:"name,attr" bson:"name"`
+		Image struct {
+			Href string `xml:"xlink:href,attr" bson:"href"`
+		} `xml:"image,allowempty" bson:"image"`
+		Title		string		`xml:"title" bson:"title"`
+		Epigraphs	[]string	`xml:"epigraph" bson:"epigraph"`
 		Sections []struct {
-			P []string `xml:"p" bson:"p"`
+			Id		string `xml:"id,attr" bson:"id"`
+			Value	string `xml:",chardata" bson:"value"`
+			//P []string `xml:"p" bson:"p"`
 		} `xml:"section" bson:"section"`
 	} `xml:"body" bson:"body"` // <body> tag needs to be processed separately
 	Binary []struct {
-		Value       string `xml:",chardata" bson:"value"`
-		ContentType string `xml:"content-type,attr" bson:"content-type"`
 		ID          string `xml:"id,attr" bson:"id"`
+		ContentType string `xml:"content-type,attr" bson:"content-type"`
+		Value       string `xml:",chardata" bson:"value"`
 	} `xml:"binary" bson:"binary"`
 }
 
